@@ -17,26 +17,20 @@
 {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    UIView *containerView = transitionContext.containerView;
-    
-    UIView *fromView;
+     UIView *containerView = transitionContext.containerView;
+     UIView *fromView;
     UIView *toView;
-    
-    if ([transitionContext respondsToSelector:@selector(viewForKey:)]) {
+     if ([transitionContext respondsToSelector:@selector(viewForKey:)]) {
         fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
         toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     } else {
         fromView = fromViewController.view;
         toView = toViewController.view;
     }
-    
-    BOOL isPresenting = (toViewController.presentingViewController == fromViewController);
-    
-    CGRect fromFrame = [transitionContext initialFrameForViewController:fromViewController];
+     BOOL isPresenting = (toViewController.presentingViewController == fromViewController);
+     CGRect fromFrame = [transitionContext initialFrameForViewController:fromViewController];
     CGRect toFrame = [transitionContext finalFrameForViewController:toViewController];
-    
-    CGVector offset;
+     CGVector offset;
     if (self.targetEdge == UIRectEdgeTop)
         offset = CGVectorMake(0.f, 1.f);
     else if (self.targetEdge == UIRectEdgeBottom)
@@ -47,8 +41,7 @@
         offset = CGVectorMake(-1.f, 0.f);
     else
         NSAssert(NO, @"targetEdge must be one of UIRectEdgeTop, UIRectEdgeBottom, UIRectEdgeLeft, or UIRectEdgeRight.");
-    
-    if (isPresenting) {
+     if (isPresenting) {
         fromView.frame = fromFrame;
         toView.frame = CGRectOffset(toFrame, toFrame.size.width * offset.dx * -1,
                                     toFrame.size.height * offset.dy * -1);
@@ -56,29 +49,23 @@
         fromView.frame = fromFrame;
         toView.frame = toFrame;
     }
-    
-    if (isPresenting)
+     if (isPresenting)
         [containerView addSubview:toView];
     else
         [containerView insertSubview:toView belowSubview:fromView];
-    
-    NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
-    
-    [UIView animateWithDuration:transitionDuration animations:^{
+     NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
+     [UIView animateWithDuration:transitionDuration animations:^{
         if (isPresenting) {
             toView.frame = toFrame;
         } else {
             fromView.frame = CGRectOffset(fromFrame, fromFrame.size.width * offset.dx,
                                           fromFrame.size.height * offset.dy);
         }
-        
-    } completion:^(BOOL finished) {
+     } completion:^(BOOL finished) {
         BOOL wasCancelled = [transitionContext transitionWasCancelled];
-        
-        if (wasCancelled)
+         if (wasCancelled)
             [toView removeFromSuperview];
-        
-        [transitionContext completeTransition:!wasCancelled];
+         [transitionContext completeTransition:!wasCancelled];
     }];
 }
 @end

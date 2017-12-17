@@ -7,8 +7,7 @@
  - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-              UIScreenEdgePanGestureRecognizer *interactiveTransitionRecognizer;
+               UIScreenEdgePanGestureRecognizer *interactiveTransitionRecognizer;
     interactiveTransitionRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(interactiveTransitionRecognizerAction:)];
     interactiveTransitionRecognizer.edges = UIRectEdgeLeft;
     [self.view addGestureRecognizer:interactiveTransitionRecognizer];
@@ -26,13 +25,11 @@
                                             if ([self.transitioningDelegate isKindOfClass:AAPLSwipeTransitionDelegate.class])
         {
             AAPLSwipeTransitionDelegate *transitionDelegate = self.transitioningDelegate;
-            
-                                                                if ([sender isKindOfClass:UIGestureRecognizer.class])
+                                                                 if ([sender isKindOfClass:UIGestureRecognizer.class])
                 transitionDelegate.gestureRecognizer = sender;
             else
                 transitionDelegate.gestureRecognizer = nil;
-            
-                                                                                                                    transitionDelegate.targetEdge = UIRectEdgeLeft;
+                                                                                                                     transitionDelegate.targetEdge = UIRectEdgeLeft;
         }
     }
 }

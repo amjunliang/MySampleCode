@@ -1,8 +1,7 @@
 /*
  Copyright (C) 2016 Apple Inc. All Rights Reserved.
  See LICENSE.txt for this sample’s licensing information
- 
- Abstract:
+  Abstract:
  The initial view controller for the Swipe demo.
  */
 #import "AAPLSwipeFirstViewController.h"
@@ -23,8 +22,7 @@
 {
     if (sender.state == UIGestureRecognizerStateBegan)
         [self performSegueWithIdentifier:@"CustomTransition" sender:sender];
-    
-}
+ }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"CustomTransition"])
@@ -44,8 +42,7 @@
 {
     if (_customTransitionDelegate == nil)
         _customTransitionDelegate = [[AAPLSwipeTransitionDelegate alloc] init];
-    
-    return _customTransitionDelegate;
+     return _customTransitionDelegate;
 }
 #pragma mark -
 #pragma mark Unwind Actions

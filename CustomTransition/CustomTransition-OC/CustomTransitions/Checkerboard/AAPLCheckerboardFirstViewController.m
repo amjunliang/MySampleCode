@@ -1,8 +1,7 @@
 /*
  Copyright (C) 2016 Apple Inc. All Rights Reserved.
  See LICENSE.txt for this sample’s licensing information
- 
- Abstract:
+  Abstract:
  The initial view controller for the Checkerboard demo.
  */
 #import "AAPLCheckerboardFirstViewController.h"
@@ -10,24 +9,14 @@
 @interface AAPLCheckerboardFirstViewController () <UINavigationControllerDelegate>
 @end
 @implementation AAPLCheckerboardFirstViewController
- 
-- (void)viewDidLoad
+ - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.navigationController.delegate = self;
+     self.navigationController.delegate = self;
 }
 #pragma mark -
 #pragma mark UINavigationControllerDelegate
-  
- 
-  
- 
-  
- 
-  
- 
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
+ - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
 {
     return [AAPLCheckerboardTransitionAnimator new];
 }

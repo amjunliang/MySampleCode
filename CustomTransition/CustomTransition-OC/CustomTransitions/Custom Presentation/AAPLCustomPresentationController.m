@@ -17,8 +17,7 @@
         _presentationWrappingView.backgroundColor = [UIColor orangeColor];
         [_presentationWrappingView addSubview:[super presentedView]];
         [super presentedView].frame = self.frameOfPresentedViewInContainerView;
-        
-    }
+     }
     return _presentationWrappingView;
 }
 - (UIView *)dimmingView
@@ -50,16 +49,14 @@
 - (void)dismissalTransitionWillBegin
 {
     id<UIViewControllerTransitionCoordinator> transitionCoordinator = self.presentingViewController.transitionCoordinator;
-    
-    [transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+     [transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         self.dimmingView.alpha = 0.f;
     } completion:NULL];
 }
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id<UIContentContainer>)container
 {
     [super preferredContentSizeDidChangeForChildContentContainer:container];
-    
-    if (container == self.presentedViewController)
+     if (container == self.presentedViewController)
         [self.containerView setNeedsLayout];
 }
 - (CGSize)sizeForChildContentContainer:(id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize
@@ -86,36 +83,28 @@
 {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    UIView *containerView = transitionContext.containerView;
+     UIView *containerView = transitionContext.containerView;
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-    
-    BOOL isPresenting = (fromViewController == self.presentingViewController);
-    
-    CGRect fromViewFinalFrame = [transitionContext finalFrameForViewController:fromViewController];
+     BOOL isPresenting = (fromViewController == self.presentingViewController);
+     CGRect fromViewFinalFrame = [transitionContext finalFrameForViewController:fromViewController];
     CGRect toViewInitialFrame = [transitionContext initialFrameForViewController:toViewController];
     CGRect toViewFinalFrame = [transitionContext finalFrameForViewController:toViewController];
-    
-    [containerView addSubview:toView];
-    
-    if (isPresenting) {
+     [containerView addSubview:toView];
+     if (isPresenting) {
         toViewInitialFrame.origin = CGPointMake(CGRectGetMinX(containerView.bounds), CGRectGetMaxY(containerView.bounds));
         toViewInitialFrame.size = toViewFinalFrame.size;
         toView.frame = toViewInitialFrame;
     } else {
         fromViewFinalFrame = CGRectOffset(fromView.frame, 0, CGRectGetHeight(fromView.frame));
     }
-    
-    NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
-    
-    [UIView animateWithDuration:transitionDuration animations:^{
+     NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
+     [UIView animateWithDuration:transitionDuration animations:^{
         if (isPresenting)
             toView.frame = toViewFinalFrame;
         else
             fromView.frame = fromViewFinalFrame;
-        
-    } completion:^(BOOL finished) {
+     } completion:^(BOOL finished) {
         BOOL wasCancelled = [transitionContext transitionWasCancelled];
         [transitionContext completeTransition:!wasCancelled];
     }];

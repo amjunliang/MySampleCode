@@ -1,20 +1,16 @@
 /*
  Copyright (C) 2016 Apple Inc. All Rights Reserved.
  See LICENSE.txt for this sample’s licensing information
- 
- Abstract:
+  Abstract:
  The application delegate.
  */
 #import "AAPLAppDelegate.h"
 @implementation AAPLAppDelegate
- 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-     
-    return YES;
+     return YES;
 }
- 
-#ifdef __IPHONE_9_0
+ #ifdef __IPHONE_9_0
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 #else
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window

@@ -11,54 +11,31 @@
 - (instancetype)initWithPresentedViewController:(UIViewController *)presentedViewController presentingViewController:(UIViewController *)presentingViewController
 {
     self = [super initWithPresentedViewController:presentedViewController presentingViewController:presentingViewController];
-    
-    if (self) {
-        
-        
-        
-        presentedViewController.modalPresentationStyle = UIModalPresentationCustom;
+     if (self) {
+          presentedViewController.modalPresentationStyle = UIModalPresentationCustom;
     }
-    
-    return self;
+     return self;
 }
 - (UIView*)presentedView
 {
-    
-    return self.presentationWrappingView;
+     return self.presentationWrappingView;
 }
 - (void)presentationTransitionWillBegin
 {
-    
-    
-    UIView *presentedViewControllerView = [super presentedView];
-    
-    
-    
-    
-    
-    
-    
-    {
+     UIView *presentedViewControllerView = [super presentedView];
+       {
         UIView *presentationWrapperView = [[UIView alloc] initWithFrame:CGRectZero];
         presentationWrapperView.layer.shadowOpacity = 0.63f;
         presentationWrapperView.layer.shadowRadius = 17.f;
         self.presentationWrappingView = presentationWrapperView;
-        
-        
-        presentedViewControllerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        
-        
-        [presentationWrapperView addSubview:presentedViewControllerView];
-        
-        
-        UIButton *dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
+         presentedViewControllerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+         [presentationWrapperView addSubview:presentedViewControllerView];
+         UIButton *dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
         dismissButton.frame = CGRectMake(0, 0, 26.f, 26.f);
         [dismissButton setImage:[UIImage imageNamed:@"CloseButton"] forState:UIControlStateNormal];
         [dismissButton addTarget:self action:@selector(dismissButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         self.dismissButton = dismissButton;
-        
-        
-        [presentationWrapperView addSubview:dismissButton];
+         [presentationWrapperView addSubview:dismissButton];
     }
 }
 #pragma mark -
@@ -72,14 +49,11 @@
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    
-    self.presentationWrappingView.clipsToBounds = YES;
+     self.presentationWrappingView.clipsToBounds = YES;
     self.presentationWrappingView.layer.shadowOpacity = 0.f;
     self.presentationWrappingView.layer.shadowRadius = 0.f;
-    
-    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        
-    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+     } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         self.presentationWrappingView.clipsToBounds = NO;
         self.presentationWrappingView.layer.shadowOpacity = 0.63f;
         self.presentationWrappingView.layer.shadowRadius = 17.f;
@@ -96,28 +70,17 @@
 {
     CGRect containerViewBounds = self.containerView.bounds;
     CGSize presentedViewContentSize = [self sizeForChildContentContainer:self.presentedViewController withParentContainerSize:containerViewBounds.size];
-    
-    
-    CGRect frame = CGRectMake(CGRectGetMidX(containerViewBounds) - presentedViewContentSize.width/2,
+     CGRect frame = CGRectMake(CGRectGetMidX(containerViewBounds) - presentedViewContentSize.width/2,
                               CGRectGetMidY(containerViewBounds) - presentedViewContentSize.height/2,
                               presentedViewContentSize.width, presentedViewContentSize.height);
-    
-    
-    
-    return CGRectInset(frame, -20, -20);
+      return CGRectInset(frame, -20, -20);
 }
 - (void)containerViewWillLayoutSubviews
 {
     [super containerViewWillLayoutSubviews];
-    
-    self.presentationWrappingView.frame = self.frameOfPresentedViewInContainerView;
-    
-    
-    self.presentedViewController.view.frame = CGRectInset(self.presentationWrappingView.bounds, 20, 20);
-    
-    
-    
-    self.dismissButton.center = CGPointMake(CGRectGetMinX(self.presentedViewController.view.frame),
+     self.presentationWrappingView.frame = self.frameOfPresentedViewInContainerView;
+     self.presentedViewController.view.frame = CGRectInset(self.presentationWrappingView.bounds, 20, 20);
+      self.dismissButton.center = CGPointMake(CGRectGetMinX(self.presentedViewController.view.frame),
                                             CGRectGetMinY(self.presentedViewController.view.frame));
 }
 #pragma mark -
@@ -126,63 +89,32 @@
 {
     return [transitionContext isAnimated] ? 0.35 : 0;
 }
- 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
+ - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    UIView *containerView = transitionContext.containerView;
-    
-     
-     
-     
-     
-    
-    
-    UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+     UIView *containerView = transitionContext.containerView;
+       UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-    
-    BOOL isPresenting = (fromViewController == self.presentingViewController);
-    
-    
-    
-    
-    [containerView addSubview:toView];
-    
-    if (isPresenting) {
+     BOOL isPresenting = (fromViewController == self.presentingViewController);
+     [containerView addSubview:toView];
+     if (isPresenting) {
         toView.alpha = 0.f;
-        
-        
-        
-        fromView.frame = [transitionContext finalFrameForViewController:fromViewController];
+          fromView.frame = [transitionContext finalFrameForViewController:fromViewController];
         toView.frame = [transitionContext finalFrameForViewController:toViewController];
     } else {
-        
-        
-        
-        
-        toView.frame = [transitionContext finalFrameForViewController:toViewController];
+         toView.frame = [transitionContext finalFrameForViewController:toViewController];
     }
-    
-    NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
-    
-    [UIView animateWithDuration:transitionDuration animations:^{
+     NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
+     [UIView animateWithDuration:transitionDuration animations:^{
         if (isPresenting)
             toView.alpha = 1.f;
         else
             fromView.alpha = 0.f;
-        
-    } completion:^(BOOL finished) {
-        
-        
-        
-        BOOL wasCancelled = [transitionContext transitionWasCancelled];
+     } completion:^(BOOL finished) {
+          BOOL wasCancelled = [transitionContext transitionWasCancelled];
         [transitionContext completeTransition:!wasCancelled];
-        
-        
-        
-        if (isPresenting == NO)
+          if (isPresenting == NO)
             fromView.alpha = 1.f;
     }];
 }
@@ -192,8 +124,7 @@
 {
     NSAssert(self.presentedViewController == presented, @"You didn't initialize %@ with the correct presentedViewController.  Expected %@, got %@.",
              self, presented, self.presentedViewController);
-    
-    return self;
+     return self;
 }
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
