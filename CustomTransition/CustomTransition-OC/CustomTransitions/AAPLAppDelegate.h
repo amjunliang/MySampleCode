@@ -5,12 +5,8 @@
  Abstract:
  The application delegate.
  */
-
 @import UIKit;
-
 @interface AAPLAppDelegate : UIResponder <UIApplicationDelegate>
-
 @property (nonatomic, strong) UIWindow *window;
-
 @end
 

@@ -5,9 +5,6 @@
  Abstract:
  The presented view controller for the Swipe demo.
  */
-
 @import UIKit;
-
 @interface AAPLSwipeSecondViewController : UIViewController
-
 @end

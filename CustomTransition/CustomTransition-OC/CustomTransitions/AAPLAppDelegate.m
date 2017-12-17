@@ -5,20 +5,15 @@
  Abstract:
  The application delegate.
  */
-
 #import "AAPLAppDelegate.h"
-
 @implementation AAPLAppDelegate
-
-//| ----------------------------------------------------------------------------
+ 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+     
     return YES;
 }
-
-
-//| ----------------------------------------------------------------------------
+ 
 #ifdef __IPHONE_9_0
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 #else
@@ -30,5 +25,4 @@
     else
         return UIInterfaceOrientationMaskAll;
 }
-
 @end

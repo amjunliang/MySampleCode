@@ -5,8 +5,6 @@
  Abstract:
  The initial view controller for the Cross Dissolve demo.
  */
-
 @import UIKit;
-
 @interface AAPLCrossDissolveFirstViewController : UIViewController
 @end

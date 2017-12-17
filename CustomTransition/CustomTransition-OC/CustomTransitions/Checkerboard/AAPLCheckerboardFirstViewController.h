@@ -5,8 +5,6 @@
  Abstract:
  The initial view controller for the Checkerboard demo.
  */
-
 @import UIKit;
-
 @interface AAPLCheckerboardFirstViewController : UIViewController
 @end

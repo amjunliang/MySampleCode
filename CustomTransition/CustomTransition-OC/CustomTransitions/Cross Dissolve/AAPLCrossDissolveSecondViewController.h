@@ -5,8 +5,6 @@
  Abstract:
  The presented view controller for the Cross Dissolve demo.
  */
-
 @import UIKit;
-
 @interface AAPLCrossDissolveSecondViewController : UIViewController
 @end

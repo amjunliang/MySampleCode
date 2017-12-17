@@ -5,8 +5,6 @@
  Abstract:
  The second view controller for the Adaptive Presentation demo.
  */
-
 @import UIKit;
-
 @interface AAPLAdaptivePresentationSecondViewController : UIViewController
 @end

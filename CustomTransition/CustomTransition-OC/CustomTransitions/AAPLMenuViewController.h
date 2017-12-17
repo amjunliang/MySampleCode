@@ -5,8 +5,6 @@
  Abstract:
  Displays the list of examples.
  */
-
 @import UIKit;
-
 @interface AAPLMenuViewController : UITableViewController
 @end

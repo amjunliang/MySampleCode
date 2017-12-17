@@ -5,10 +5,8 @@
  Abstract:
  The main file.
  */
-
 #import <UIKit/UIKit.h>
 #import "AAPLAppDelegate.h"
-
 int main(int argc, char * argv[])
 {
     @autoreleasepool {

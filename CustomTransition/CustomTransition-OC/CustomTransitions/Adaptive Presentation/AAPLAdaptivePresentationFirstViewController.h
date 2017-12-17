@@ -5,8 +5,6 @@
  Abstract:
  The initial view controller for the Adaptive Presentation demo.
  */
-
 @import UIKit;
-
 @interface AAPLAdaptivePresentationFirstViewController : UIViewController
 @end

@@ -7,8 +7,6 @@
   external storyboard (named by the segue's identifier), then presents it 
   modally.
  */
-
 @import UIKit;
-
 @interface AAPLExternalStoryboardSegue : UIStoryboardSegue
 @end

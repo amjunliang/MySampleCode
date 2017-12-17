@@ -5,15 +5,12 @@
  Abstract:
  Displays the list of examples.
  */
-
 #import "AAPLMenuViewController.h"
-
 @implementation AAPLMenuViewController
-
-//| ----------------------------------------------------------------------------
+ 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    // Certain examples are only supported on iOS 8 and later.
+     
     if ([UIDevice currentDevice].systemVersion.floatValue < 8.f)
     {
         NSArray *iOS7Examples = @[@"CrossDissolve", @"Dynamics", @"Swipe", @"Checkerboard", @"Slide"];
@@ -30,10 +27,7 @@
     
     return YES;
 }
-
-
-//| ----------------------------------------------------------------------------
+ 
 - (IBAction)unwindToMenuViewController:(UIStoryboardSegue*)sender
 { }
-
 @end

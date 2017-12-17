@@ -5,8 +5,6 @@
  Abstract:
  The initial view controller for the Custom Presentation demo.
  */
-
 @import UIKit;
-
 @interface AAPLCustomPresentationFirstViewController : UIViewController
 @end

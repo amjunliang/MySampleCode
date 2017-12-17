@@ -5,13 +5,8 @@
  Abstract:
  The interaction controller for the Slide demo.
  */
-
 @import UIKit;
-
 @interface AAPLSlideTransitionInteractionController : UIPercentDrivenInteractiveTransition
-
 - (instancetype)initWithGestureRecognizer:(UIPanGestureRecognizer *)gestureRecognizer NS_DESIGNATED_INITIALIZER;
-
 - (instancetype)init NS_UNAVAILABLE;
-
 @end

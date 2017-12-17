@@ -6,13 +6,8 @@
  A transition animator that slides the incoming view controller over the
   presenting view controller.
  */
-
 @import UIKit;
-
 @interface AAPLSwipeTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
-
 - (instancetype)initWithTargetEdge:(UIRectEdge)targetEdge;
-
 @property (nonatomic, readwrite) UIRectEdge targetEdge;
-
 @end

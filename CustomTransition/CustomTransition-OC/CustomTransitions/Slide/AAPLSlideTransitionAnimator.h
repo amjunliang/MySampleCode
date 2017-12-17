@@ -7,16 +7,11 @@
   a tab bar controller by sliding both view controllers in a given
   direction.
  */
-
 @import UIKit;
-
 @interface AAPLSlideTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
-
 - (instancetype)initWithTargetEdge:(UIRectEdge)targetEdge;
-
-//! The value for this property determines which direction the view controllers
-//! slide during the transition.  This must be one of UIRectEdgeLeft or
-//! UIRectEdgeRight.
+ 
+  
+ 
 @property (nonatomic, readwrite) UIRectEdge targetEdge;
-
 @end

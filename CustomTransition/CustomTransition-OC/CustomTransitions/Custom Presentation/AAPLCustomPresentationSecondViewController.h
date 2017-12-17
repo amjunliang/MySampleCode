@@ -5,8 +5,6 @@
  Abstract:
  The second view controller for the Custom Presentation demo.
  */
-
 @import UIKit;
-
 @interface AAPLCustomPresentationSecondViewController : UIViewController
 @end

@@ -5,8 +5,6 @@
  Abstract:
  The initial view controller for the Swipe demo.
  */
-
 @import UIKit;
-
 @interface AAPLSwipeFirstViewController : UIViewController
 @end

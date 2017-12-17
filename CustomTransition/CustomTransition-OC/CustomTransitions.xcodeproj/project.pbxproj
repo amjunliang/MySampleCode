@@ -43,7 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D012017E1B7E8E5100364AFB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D012017E1B7E8E5100364AFB /* README_samp.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_samp.md; sourceTree = "<group>"; };
 		D04185DA1A5F25FA004295A5 /* AAPLSwipeTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeTransitionAnimator.h; sourceTree = "<group>"; };
 		D04185DB1A5F25FA004295A5 /* AAPLSwipeTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwipeTransitionAnimator.m; sourceTree = "<group>"; };
 		D04185DD1A5F26D2004295A5 /* AAPLSwipeTransitionInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeTransitionInteractionController.h; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		D06B69061A5B05A10009167D = {
 			isa = PBXGroup;
 			children = (
-				D012017E1B7E8E5100364AFB /* README.md */,
+				D012017E1B7E8E5100364AFB /* README_samp.md */,
 				D06B69111A5B05A10009167D /* CustomTransitions */,
 				D06B69101A5B05A10009167D /* Products */,
 			);
@@ -180,12 +180,12 @@
 			isa = PBXGroup;
 			children = (
 				D06B69501A5C515E0009167D /* CrossDissolve.storyboard */,
+				D06B69581A5C62830009167D /* AAPLCrossDissolveTransitionAnimator.h */,
+				D06B69591A5C62830009167D /* AAPLCrossDissolveTransitionAnimator.m */,
 				D06B69521A5C53D60009167D /* AAPLCrossDissolveFirstViewController.h */,
 				D06B69531A5C53D60009167D /* AAPLCrossDissolveFirstViewController.m */,
 				D06B69551A5C61BD0009167D /* AAPLCrossDissolveSecondViewController.h */,
 				D06B69561A5C61BD0009167D /* AAPLCrossDissolveSecondViewController.m */,
-				D06B69581A5C62830009167D /* AAPLCrossDissolveTransitionAnimator.h */,
-				D06B69591A5C62830009167D /* AAPLCrossDissolveTransitionAnimator.m */,
 			);
 			path = "Cross Dissolve";
 			sourceTree = "<group>";
@@ -226,12 +226,12 @@
 			isa = PBXGroup;
 			children = (
 				D0B7D1881A6835F200AC4A88 /* CustomPresentation.storyboard */,
+				D0E35F3E1A8948B100F74DCE /* AAPLCustomPresentationController.h */,
+				D0E35F3F1A8948B100F74DCE /* AAPLCustomPresentationController.m */,
 				D0B7D18A1A68374D00AC4A88 /* AAPLCustomPresentationFirstViewController.h */,
 				D0B7D18B1A68374D00AC4A88 /* AAPLCustomPresentationFirstViewController.m */,
 				D0E35F481A8A915700F74DCE /* AAPLCustomPresentationSecondViewController.h */,
 				D0E35F491A8A915700F74DCE /* AAPLCustomPresentationSecondViewController.m */,
-				D0E35F3E1A8948B100F74DCE /* AAPLCustomPresentationController.h */,
-				D0E35F3F1A8948B100F74DCE /* AAPLCustomPresentationController.m */,
 			);
 			path = "Custom Presentation";
 			sourceTree = "<group>";
